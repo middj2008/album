@@ -7,8 +7,8 @@ class Album(models.Model):
     title = models.CharField(max_length=255)
     artist = models.CharField(max_length=255)
     url = models.URLField(max_length=255)
-    image =  models.FileField(upload_to='image')
-    thumbnail = models.FileField(upload_to='image')
+    image =  models.URLField(max_length=255)
+    thumbnail = models.URLField(max_length=255)
 
     def __str__(self):
         return self.title
