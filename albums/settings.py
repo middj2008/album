@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'albumapi',
     'rest_framework',
     'drf_yasg',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -130,7 +131,6 @@ STATICFILES_DIR = [os.path.join(BASE_DIR, 'albums/static')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 django_heroku.settings(locals())
 
@@ -138,6 +138,16 @@ django_heroku.settings(locals())
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8000"
 ]
+
+
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', 'AKIAXSGH5WNUMOVRYFGM')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', 'eagaNweIaZDSrie6+WvnmmC/+tAOBacK3fxKvxjF+Bq')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_ACCESS_KEY_ID', 'albumapi')
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # Default primary key field type
