@@ -8,7 +8,7 @@ from albumapi.models import Album
 class AlbumSerializer(serializers.ModelSerializer):
     class Meta:
         model = Album
-        fields = ['title', 'artist', 'url', 'image', 'thumbnail']
+        fields = ['id','title', 'artist', 'url', 'image', 'thumbnail']
 
 
 class DestroyAlbum(serializers.ModelSerializer):
